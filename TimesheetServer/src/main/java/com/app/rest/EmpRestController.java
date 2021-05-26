@@ -74,10 +74,10 @@ public class EmpRestController {
 	@GetMapping("/admin/login")
 	public Admin adminLogin(@RequestParam Integer id,@RequestParam String pass)
 	{
-		Admin a=bankService.getAdmin(id);
+		Admin a=serviceImpl.getAdmin(id);
 		try
 		{
-		if(a.getPass().equals(pass))
+		if(a.getPassword().equals(pass))
 		{
 			return a;
 		}
