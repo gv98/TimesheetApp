@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.entity.Admin;
 import com.app.entity.Employee;
+import com.app.entity.Leaves;
+import com.app.entity.TimeReport;
 import com.app.service.ServiceImpl;
 
 @RestController
@@ -89,6 +91,19 @@ public class EmpRestController {
 		{
 			return a=null;
 		}
+	}
+	@PostMapping("/admin/createleave")
+	public Leaves createLeave(@RequestBody Leaves theLeave )
+	{
+		serviceImpl.createLeave(theLeave);
+		return theLeave;
+	}
+	
+	@GetMapping("/admin/getcustomdatesreport")
+	public List<TimeReport> getCustomDatesReport(@RequestParam String str)
+	{
+		List<TimeReport> t=serviceImpl.getCustomDatesReport(str);
+		return t;
 	}
 
 }

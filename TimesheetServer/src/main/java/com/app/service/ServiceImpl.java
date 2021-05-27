@@ -8,20 +8,29 @@ import org.springframework.stereotype.Service;
 
 import com.app.dao.AdminRepository;
 import com.app.dao.EmployeeRepository;
+import com.app.dao.LeaveRepository;
+import com.app.dao.TimeRepository;
 import com.app.entity.Admin;
 import com.app.entity.Employee;
+import com.app.entity.Leaves;
+import com.app.entity.TimeReport;
 
 @Service
 public class ServiceImpl implements IService {
 
 	private EmployeeRepository employeeRepository;
 	private AdminRepository adminRepository;
+	private LeaveRepository leaveRepository;
+	private TimeRepository timeRepository;
 	
 	@Autowired
-	public ServiceImpl(EmployeeRepository employeeRepository,AdminRepository adminRepository) {
+	public ServiceImpl(EmployeeRepository employeeRepository,AdminRepository adminRepository,
+			LeaveRepository leaveRepository,TimeRepository timeRepository) {
 		super();
 		this.employeeRepository = employeeRepository;
 		this.adminRepository=adminRepository;
+		this.leaveRepository=leaveRepository;
+		this.timeRepository=timeRepository;
 	}
 
 
@@ -77,6 +86,30 @@ public class ServiceImpl implements IService {
 			return theAdmin;
 		}
 		return theAdmin;
+	}
+
+
+	@Override
+	public void createLeave(Leaves theleave) {
+		// TODO Auto-generated method stub
+		leaveRepository.save(theleave);
+	}
+
+
+	@Override
+	public List<TimeReport> getCustomDatesReport(String str) {
+		// TODO Auto-generated method stub
+		List<TimeReport> t=null;
+		try
+		{
+			t=timeRepository.getCustomDatesReport(str);
+		}
+		catch(Exception e)
+		{
+			return t;
+		}
+		return t;
+		
 	}
 	
 
