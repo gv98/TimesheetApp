@@ -19,10 +19,14 @@ public interface TimeRepository extends JpaRepository<TimeReport, Integer> {
 //			+ "on l.empidl=e.empid and l.dat= :stri;",nativeQuery=true)
 //	public List<TimeReport> getCustomDatesReport(@Param("stri") String str);
 	
+//	@Query
+//	(value=" select empid,name,dat,attendance from "
+//			+ "logbook join employee "
+//			+ "on dat in(select dat from logbook where dat= :stri)",nativeQuery=true)
+//	public List<TimeReport> getCustomDatesReport(@Param("stri") String str);
+	
 	@Query
-	(value=" select * from "
-			+ "logbook,employee "
-			+ "where dat in(select dat from logbook where dat= :stri)",nativeQuery=true)
+	(value=" select empid,name,dat,attendance from logbook l join employee e on e.empid=l.empidl and l.dat= :stri order by empid",nativeQuery=true)
 	public List<TimeReport> getCustomDatesReport(@Param("stri") String str);
 	
 
