@@ -21,8 +21,8 @@ import com.app.entity.TimeReport;
 import com.app.service.ServiceImpl;
 
 @RestController
-@RequestMapping("/timesheet")
 @CrossOrigin("http://localhost:4200")
+@RequestMapping("/timesheet")
 public class EmpRestController {
 	
 	ServiceImpl serviceImpl;
