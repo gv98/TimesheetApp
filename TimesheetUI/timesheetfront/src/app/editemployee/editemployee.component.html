@@ -6,10 +6,10 @@
           <div class="col-sm-8 offset-sm-2">
       
             <div>
-                <form #frmval="ngForm" name="myform" (ngSubmit)="saveUser(frmval.value)">
+                <form #frmval="ngForm" name="myform" (ngSubmit)="saveEmp(frmval.value)">
                     <div class="form-group">
                         <label>Enter Name:</label>
-                        <input type="text" name="name" #fname="ngModel" class="form-control" pattern="^[a-zA-Z ]{3,30}$" ngModel required>
+                        <input type="text" name="name" #fname="ngModel" class="form-control" pattern="^[a-zA-Z ]{3,30}$" [ngModel]=UserObj?.name required>
                         <div *ngIf="fname.touched && fname.invalid">
                             <div class="alert alert-danger" *ngIf="fname.hasError('required')">This field is required</div>
                             <div class="alert alert-danger" *ngIf="fname.hasError('pattern')">Name field should contain only characters
@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enter Designation:</label>
-                        <input type="text" name="designation" #fcity="ngModel" class="form-control" pattern="^[a-zA-Z ]{3,30}$" ngModel required>
+                        <input type="text" name="designation" #fcity="ngModel" class="form-control" pattern="^[a-zA-Z ]{3,30}$" [ngModel]=UserObj?.designation required>
                         <div *ngIf="fcity.touched && fcity.invalid">
                             <div class="alert alert-danger" *ngIf="fcity.hasError('required')">This field is required</div>
                             <div class="alert alert-danger" *ngIf="fcity.hasError('pattern')">Designation field should contain only characters
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enter DOB:</label>
-                        <input type="text" name="dob" #fdob="ngModel" class="form-control" pattern="^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$" ngModel required>
+                        <input type="text" name="dob" #fdob="ngModel" class="form-control" pattern="^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$" [ngModel]=UserObj?.dob required>
                         <div *ngIf="fdob.touched && fdob.invalid">
                             <div class="alert alert-danger" *ngIf="fdob.hasError('required')">Date Field Is Required</div>
                             <div class="alert alert-danger" *ngIf="fdob.hasError('pattern')">Enter a valid date(MM/DD/YYYY)
@@ -40,7 +40,7 @@
                     
                     <div class="form-group">
                         <label>Enter salary:</label>
-                        <input type="text" name="salary" #fsalary="ngModel" class="form-control" pattern="^([0-9]{5,12})$" ngModel required>
+                        <input type="text" name="salary" #fsalary="ngModel" class="form-control" pattern="^([0-9]{5,12})$" [ngModel]=UserObj?.salary required>
                         <div *ngIf="fsalary.touched && fsalary.invalid">
                             <div class="alert alert-danger" *ngIf="fsalary.hasError('required')">Salary Field Is Required</div>
                             <div class="alert alert-danger" *ngIf="fsalary.hasError('pattern')">Enter a valid number</div>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enter Address</label>
-                        <input type="text" name="address" #faddress="ngModel" class="form-control" ngModel required>
+                        <input type="text" name="address" #faddress="ngModel" class="form-control" [ngModel]=UserObj?.address required>
                         <div *ngIf="faddress.touched && faddress.invalid">
                             <div class="alert alert-danger" *ngIf="femail.hasError('required')">This field is required</div>
                             
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enter Email:</label>
-                        <input type="text" name="email" #femail="ngModel" class="form-control" pattern="^[a-z0-9._%+-]+@([a-z0-9.-]{5})+\.[a-z]{2,4}$" ngModel required>
+                        <input type="text" name="email" #femail="ngModel" class="form-control" pattern="^[a-z0-9._%+-]+@([a-z0-9.-]{5})+\.[a-z]{2,4}$" [ngModel]=UserObj?.email required>
                         <div *ngIf="femail.touched && femail.invalid">
                             <div class="alert alert-danger" *ngIf="femail.hasError('required')">This field is required</div>
                             <div class="alert alert-danger" *ngIf="femail.hasError('pattern')">Wrong Format For Email
@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enter Contact number:</label>
-                        <input type="text" name="mobile" #fnumber="ngModel" class="form-control" pattern="^([0-9]{10,12})$" ngModel required>
+                        <input type="text" name="mobile" #fnumber="ngModel" class="form-control" pattern="^([0-9]{10,12})$" [ngModel]=UserObj?.mobile required>
                         <div *ngIf="fnumber.touched && fnumber.invalid">
                             <div class="alert alert-danger" *ngIf="fnumber.hasError('required')">This field is required</div>
                             <div class="alert alert-danger" *ngIf="fnumber.hasError('pattern')">Enter a valid mobile number
@@ -74,35 +74,9 @@
                 
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Choose a Password:</label>
-                        <input type="password" name="password" #fpass="ngModel" class="form-control" pattern="^([0-9]{6,12})$" ngModel required>
-                        <div *ngIf="fpass.touched && fpass.invalid">
-                            <div class="alert alert-danger" *ngIf="fpass.hasError('required')">Password Field Is Required</div>
-                            <div class="alert alert-danger" *ngIf="fpass.hasError('pattern')">Enter a Six Digit Secret Pin!
-                            </div>
-                
-                        </div>
-                    </div>
-
-                    <!-- <div class="form-group">
-                        <label>Select your Account type:</label><br>
-                            <input type="radio" value="CURRENT" name="acc_type" ngModel required #ftype="ngModel"> Current
-                            <input type="radio" value="SAVINGS" name="acc_type" ngModel required #ftype="ngModel"> Savings
-                    <div class="alert alert-danger" *ngIf="ftype.invalid"> 
-                         This Field is Required 
-                    </div>
-                    </div> -->
-                    <!-- <div class="form-group form check">
-                        <label>
-                            <input type="checkbox" name="term" #fterm="ngModel" class="form-check-input" ngModel required>I accept the terms and conditions
-                        </label>
-                        <div *ngIf="fterm.touched && fterm.invalid">
-                            <div class="alert alert-danger" ngIf="fterm.hasError('required')">accept the terms to continue</div>
-                        </div>
-                    </div> -->
+                   
                     <br>
-                    <button type="submit" class="btn btn-secondary btn-lg btn-block" [disabled]="frmval.invalid">Register</button>
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block" [disabled]="frmval.invalid">Update</button>
                 </form>
                 </div>
           </div>

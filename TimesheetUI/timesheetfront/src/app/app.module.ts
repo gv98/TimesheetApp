@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { EditemployeeComponent } from './editemployee/editemployee.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     HeaderComponent,
     HomeComponent,
     AddEmployeeComponent,
+    EditemployeeComponent,
   ],
   imports: [
     BrowserModule,

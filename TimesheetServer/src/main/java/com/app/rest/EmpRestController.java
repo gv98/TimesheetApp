@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.entity.Admin;
+import com.app.entity.EmpCred;
 import com.app.entity.Employee;
 import com.app.entity.Leaves;
 import com.app.entity.TimeReport;
@@ -37,6 +38,13 @@ public class EmpRestController {
 	public Employee saveAccount(@RequestBody Employee theEmployee)
 	{
 		serviceImpl.saveEmployee(theEmployee);
+		return theEmployee;
+	}
+	
+	@PostMapping("/employees/createauth")
+	public EmpCred saveAuth(@RequestBody EmpCred theEmployee)
+	{
+		serviceImpl.saveEmpCred(theEmployee);
 		return theEmployee;
 	}
 	
@@ -90,6 +98,29 @@ public class EmpRestController {
 		}catch(Exception e)
 		{
 			return a=null;
+		}
+	}
+	
+	@GetMapping("/employees/login")
+	public Employee empLogin(@RequestParam String email,@RequestParam String password)
+	{
+		EmpCred a=serviceImpl.findCredById(email);
+		Employee e;
+		try
+		{
+		if(a.getPassword().equals(password))
+		{
+			e=serviceImpl.findEmpByEmail(email);
+			System.out.println(e.getName());
+			return e;
+		}
+		else
+		{
+			return e=null;
+		}
+		}catch(Exception ei)
+		{
+			return e=null;
 		}
 	}
 	@PostMapping("/admin/createleave")
