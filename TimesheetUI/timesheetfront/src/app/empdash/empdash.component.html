@@ -1,1 +1,24 @@
-<p>empdash works!</p>
+<div id="container" class="jumbotron" style="background-color: #fff; height: calc(100vh);">   
+
+    <div class="box" id="bluebox">
+      <h1>{{emp.name}}&nbsp;</h1>
+      <p class="lead">
+      Employee ID:&nbsp;{{emp.empid}}
+      <br>
+      Email: &nbsp; {{emp.email}}
+      <br>
+      Contact: &nbsp; {{emp.mobile}}
+      </p>
+      <h2>
+        {{emp.designation}}
+    </h2>
+      
+    </div>
+    <div class="box" id="bluebox">
+        <a class="btn btn-lg btn-primary" routerLink="/timesheet" role="button">Timesheet</a>&nbsp;
+      <a class="btn btn-light btn-lg btn-primary" routerLink="/changepass" role="button">Change Password</a>
+      <div class="box"><a class="btn btn-dark btn-lg btn-primary" routerLink="/empupdate" role="button">Update Details</a></div>
+      
+    </div>
+    
+</div>

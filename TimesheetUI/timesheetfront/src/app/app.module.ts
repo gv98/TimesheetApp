@@ -18,6 +18,8 @@ import { CustomtimesheetreportComponent } from './customtimesheetreport/customti
 import { CreateleaveComponent } from './createleave/createleave.component';
 import { EmploginComponent } from './emplogin/emplogin.component';
 import { EmpdashComponent } from './empdash/empdash.component';
+import { EmpupdateComponent } from './empupdate/empupdate.component';
+import { ChangepassComponent } from './changepass/changepass.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { EmpdashComponent } from './empdash/empdash.component';
     CreateleaveComponent,
     EmploginComponent,
     EmpdashComponent,
+    EmpupdateComponent,
+    ChangepassComponent,
   ],
   imports: [
     BrowserModule,

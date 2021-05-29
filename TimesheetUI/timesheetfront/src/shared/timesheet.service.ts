@@ -85,4 +85,8 @@ export class TimesheetService {
     sessionStorage.setItem("employee",user);
   }
 
+  signInEmp(user:any){
+    sessionStorage.setItem("empid",user);
+  }
+
 }

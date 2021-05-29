@@ -31,7 +31,7 @@ export class EmploginComponent implements OnInit {
       this.temp=res;
       if(this.temp!=null)
       {
-        this._timesheetSer.signIn(this.temp.empid);
+        this._timesheetSer.signInEmp(this.temp.empid);
         this._router.navigate(['empdash'])
       }
       else
