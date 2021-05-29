@@ -13,4 +13,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signout()
+  {
+    if(confirm("Are You Sure?"))
+    {
+      sessionStorage.removeItem("admin");
+    this._router.navigate(['home']);
+    }
+    
+  }
+
 }

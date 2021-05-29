@@ -4,6 +4,7 @@ import { IEmployee } from './interface/iemployee.model';
 import { baseUrl } from './constants/constant';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +45,44 @@ export class TimesheetService {
   {
     const url=`${baseUrl}/employees/${empid}`;
     return this._http.delete(url);
+  }
+
+  adminLogin(id:any,pass:any)
+  {
+    const Url=`${baseUrl}/admin/login?id=${id}&pass=${pass}`;
+    return this._http.get(Url);
+  }
+
+  customDateReport(val:string)
+  {
+    const Url=`${baseUrl}/admin/getcustomdatesreport?str=${val}`;
+    return this._http.get(Url);
+  }
+
+  addleave(val:any)
+  {
+    const Url=`${baseUrl}/admin/createleave`;
+    return this._http.post(Url,val);
+  }
+
+  viewLeaveTypes()
+  {
+    const Url=`${baseUrl}/admin/viewleavetypes`;
+    return this._http.get(Url);
+  }
+
+  deleteLeave(val:String)
+  {
+    const url=`${baseUrl}/admin/deleteleavetype?val=${val}`;
+    return this._http.delete(url);
+  }
+
+  Login(user:any){
+    const Url=`${baseUrl}/employees/login?email=${user.email}&password=${user.password}`;
+    return this._http.get(Url);
+  }
+  signIn(user:any){
+    sessionStorage.setItem("employee",user);
   }
 
 }

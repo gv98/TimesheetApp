@@ -13,6 +13,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EditemployeeComponent } from './editemployee/editemployee.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { CustomtimesheetreportComponent } from './customtimesheetreport/customtimesheetreport.component';
+import { CreateleaveComponent } from './createleave/createleave.component';
+import { EmploginComponent } from './emplogin/emplogin.component';
+import { EmpdashComponent } from './empdash/empdash.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,11 @@ import { EditemployeeComponent } from './editemployee/editemployee.component';
     HomeComponent,
     AddEmployeeComponent,
     EditemployeeComponent,
+    AdminloginComponent,
+    CustomtimesheetreportComponent,
+    CreateleaveComponent,
+    EmploginComponent,
+    EmpdashComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +41,7 @@ import { EditemployeeComponent } from './editemployee/editemployee.component';
     FormsModule,
     HttpClientModule,
     ModalModule.forRoot(),
+    
 
   ],
   providers: [],

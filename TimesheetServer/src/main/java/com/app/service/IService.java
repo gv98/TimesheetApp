@@ -19,4 +19,6 @@ public interface IService {
 	public Admin getAdmin(Integer id);
 	public void createLeave(Leaves theleave);
 	public List<TimeReport> getCustomDatesReport(String str);
+	public List<Leaves> viewLeaveTypes();
+	public void deleteLeavetype(String stri);
 }

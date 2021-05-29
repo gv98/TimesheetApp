@@ -6,34 +6,48 @@
         </div>
     </div>
     <div class="container" style="margin-top: 70px;">
-      <input type="text" class="form-control" placeholder="search" [(ngModel)]="term">
+        <form #frmval="ngForm" name="myform" (ngSubmit)="showAll(frmval.value)">
+                    
+            <div class="form-group">
+                <label>Enter a Date:</label>
+                <input type="text" name="idate" #fdate="ngModel" class="form-control" pattern="^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$" ngModel required>
+                <div *ngIf="fdate.touched && fdate.invalid">
+                    <div class="alert alert-danger" *ngIf="fdate.hasError('required')">This field is required</div>
+                    <div class="alert alert-danger" *ngIf="fdate.hasError('pattern')">Enter a valid date(MM/DD/YYYY)
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="frmval.invalid">Search</button>
+        </form>
         <table class="table table-hover">
           <thead>
             <tr>
               <th>Name</th>
               <th>Empid</th>
-              <th>Designation</th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Actions</th>
+              <th>Date</th>
+              <th>Hours worked</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let a of empArray | filter:term | paginate: { itemsPerPage: 5, currentPage: p }" >
+            <tr *ngFor="let a of empArray" >
       
               <td>{{ a.name }}</td>
               <td> {{ a.empid }}</td>
-              <td> {{ a.designation }}</td>
-              <td>{{a.email}}</td>
-              <td>{{a.mobile}}</td>
+              <td> {{ a.dat }}</td>
+              <td>{{a.attendance}}</td>
+              </tr>
+              </tbody>
+              </table>
               
-              <td>
+              <!-- <td>
                 <button class="btn btn-primary" (click)="openModal(template)">View</button>&nbsp;
                 <button type="button" class="btn btn-warning" (click)="editEmp(a.empid)">Edit</button>&nbsp;
                 <button type="button" class="btn btn-secondary btn active">Leave Report</button>&nbsp;
                 <button type="button" class="btn btn-outline-danger" (click)="deleteEmp(a.empid)">Delete</button>
-            </td>
-              <ng-template #template>
+            </td> -->
+              <!-- <ng-template #template>
                 <div class="modal-header">
                   <h4 class="modal-title pull-left">Account Details</h4>
                   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -52,38 +66,7 @@
                     <tr><td><b>Salary:&nbsp;</b>{{a.salary}}</td></tr>
                 </table>
                 </div>
-              </ng-template>
-              <!-- <ng-template #template>
-                <div class="modal-header">
-                  <h4 class="modal-title pull-left">Account Details</h4>
-                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <table>
-                        <tr><td>NAME:{{a.name}}</td></tr>
-                        <tr><td>ACCOUNT NO:{{a.acc_no}}</td></tr>
-                        <tr><td>BALANCE:{{a.balance}}</td></tr>
-                        <tr><td>TYPE:{{a.acc_type}}</td></tr>
-                    </table>
-                </div>
               </ng-template> -->
-            </tr>
-          </tbody>
-        </table>
-        <!-- <div class="card text-center" *ngIf="selectedContact">
-            <div class="card-header">
-              # {{selectedContact.id}}
-            </div>
-            <div class="card-block">
-              <h4 class="card-title">{{selectedContact.name}}</h4>
-              <p class="card-text">
-                {{selectedContact.description}}
-              </p>    
-            </div>
-      
-          </div> -->
+              
       </div>
-      <pagination-controls (pageChange)="p = $event" style="float: right;"></pagination-controls>
 </div>

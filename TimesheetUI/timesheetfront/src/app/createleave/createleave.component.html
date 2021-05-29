@@ -1,0 +1,43 @@
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh);">
+    <div class="row">
+       <div class="col-sm-10"></div>
+        <div class="col-sm-10">
+            
+        </div>
+    </div>
+    <div class="container" style="margin-top: 70px;">
+        <form #frmval="ngForm" name="myform" (ngSubmit)="createleave(frmval.value)">
+                    
+            <div class="form-group">
+                <label>Enter a Leave Type:</label>
+                <input type="text" name="ltype" #ltype="ngModel" class="form-control" pattern="^[a-zA-Z ]{2,30}$" ngModel required>
+                <div *ngIf="ltype.touched && ltype.invalid">
+                    <div class="alert alert-danger" *ngIf="ltype.hasError('required')">This field is required</div>
+                    <div class="alert alert-danger" *ngIf="ltype.hasError('pattern')">This field should only contain characters
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="frmval.invalid">Create</button>
+        </form>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of leaveObj" >
+      
+              <td>{{ a.name }}</td>
+              <td><button type="button" class="btn btn-outline-danger" (click)="deleteLeave(a.name)">Delete</button></td>
+              </tr>
+              </tbody>
+              </table>
+              
+              
+              
+      </div>
+</div>

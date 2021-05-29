@@ -157,6 +157,22 @@ public class ServiceImpl implements IService {
 		}
 		return eo;
 	}
+
+
+	@Override
+	public List<Leaves> viewLeaveTypes() {
+		// TODO Auto-generated method stub
+		List<Leaves> l=leaveRepository.findAll();
+		return l;
+	}
+
+
+	@Override
+	public void deleteLeavetype(String stri) {
+		// TODO Auto-generated method stub
+		leaveRepository.deleteLeave(stri);
+		
+	}
 	
 
 }

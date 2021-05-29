@@ -130,10 +130,34 @@ public class EmpRestController {
 		return theLeave;
 	}
 	
+	@GetMapping("/admin/viewleavetypes")
+	public List<Leaves> viewLeaves()
+	{
+		List<Leaves> l=serviceImpl.viewLeaveTypes();
+		System.out.println(l);
+		return l;
+	}
+	
+	@DeleteMapping("/admin/deleteleavetype")
+	public String deleteLeave(@RequestParam String val)
+	{
+		try
+		{
+			serviceImpl.deleteLeavetype(val);
+		}
+		catch(Exception e)
+		{
+			return val;
+		}
+		
+		return val;
+	}
+	
 	@GetMapping("/admin/getcustomdatesreport")
 	public List<TimeReport> getCustomDatesReport(@RequestParam String str)
 	{
 		List<TimeReport> t=serviceImpl.getCustomDatesReport(str);
+		System.out.println(t);
 		return t;
 	}
 
