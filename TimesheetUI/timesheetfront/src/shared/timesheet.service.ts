@@ -113,4 +113,16 @@ export class TimesheetService {
     return this._http.get(Url);
   }
 
+  updateTimeSheet(val:any)
+  {
+    const Url=`${baseUrl}/employee/updatetimesheet`;
+    return this._http.put(Url,val);
+  }
+
+  getLogById(pid:any)
+  {
+    const Url=`${baseUrl}/employee/getlogbyid?pid=${pid}`;
+    return this._http.get(Url);
+  }
+
 }

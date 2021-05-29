@@ -13,6 +13,7 @@ import { EmploginComponent } from './emplogin/emplogin.component';
 import { EmpupdateComponent } from './empupdate/empupdate.component';
 import { HomeComponent } from './home/home.component';
 import { TimesheetdashComponent } from './timesheetdash/timesheetdash.component';
+import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:"empupdate",component:EmpupdateComponent},
   {path:"changepass",component:ChangepassComponent},
   {path:"timesheetdash",component:TimesheetdashComponent},
-  {path:"addtimesheet",component:AddtimesheetComponent}
+  {path:"addtimesheet",component:AddtimesheetComponent},
+  {path:"updatesheet",component:UpdatetimesheetComponent}
 ];
 
 @NgModule({

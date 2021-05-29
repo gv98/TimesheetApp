@@ -41,4 +41,10 @@ export class TimesheetdashComponent implements OnInit {
     
   }
 
+  updateSheet(pid:any)
+  {
+    sessionStorage.setItem("pid",pid);
+    this._router.navigate(['/updatesheet']);
+  }
+
 }

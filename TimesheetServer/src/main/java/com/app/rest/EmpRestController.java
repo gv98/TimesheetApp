@@ -184,10 +184,25 @@ public class EmpRestController {
 		return e;
 	}
 	
+	@PutMapping("/employee/updatetimesheet")
+	public ELogbook updateSheet(@RequestBody ELogbook e)
+	{
+		serviceImpl.addtosheet(e);
+		return e;
+	}
+	
 	@GetMapping("/admin/getcustomtimereport")
 	public List<ELogbook> getCustomTimeReport(@RequestParam int empid)
 	{
 		List<ELogbook> t=serviceImpl.getCustomTimeReport(empid);
+		System.out.println(t);
+		return t;
+	}
+	
+	@GetMapping("/employee/getlogbyid")
+	public ELogbook getLogById(@RequestParam int pid)
+	{
+		ELogbook t=serviceImpl.getLogById(pid);
 		System.out.println(t);
 		return t;
 	}

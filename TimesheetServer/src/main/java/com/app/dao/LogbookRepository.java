@@ -14,4 +14,9 @@ public interface LogbookRepository extends JpaRepository<ELogbook,Integer> {
 @Query
 (value="select * from logbook where empidl= :id",nativeQuery=true)
 public List<ELogbook> timeSheetDash(@Param("id") int id);
+@Query
+(value="select * from logbook where pid= :id",nativeQuery=true)
+public ELogbook getLogById(@Param("id") int id);
 }
+
+

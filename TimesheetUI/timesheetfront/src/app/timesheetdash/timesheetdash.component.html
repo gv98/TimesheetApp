@@ -21,7 +21,7 @@
               <td>{{a.attendance}}</td>
               <td>{{a.status}}</td>
               <td><button *ngIf="a.status=='saved'" class="btn btn-outline-success" (click)="submitTime(a.dat)">Submit</button>&nbsp;
-                <button *ngIf="a.status=='saved'" class="btn btn-outline-danger">Update</button>
+                <button *ngIf="a.status=='saved'" class="btn btn-outline-danger" (click)='updateSheet(a.pid)'>Update</button>
             </td>
               </tr>
               </tbody>

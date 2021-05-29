@@ -1,7 +1,6 @@
 package com.app.service;
 
 import java.util.List;
-
 import com.app.entity.Admin;
 import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
@@ -26,4 +25,5 @@ public interface IService {
 	public void approveTime(int id,String str);
 	public void submitTime(int id,String str);
 	public void addtosheet(ELogbook e);
+	public ELogbook getLogById(int id);
 }

@@ -216,6 +216,13 @@ public class ServiceImpl implements IService {
 		// TODO Auto-generated method stub
 		timeRepository.submitTime(id, str);
 	}
+
+
+	@Override
+	public ELogbook getLogById(int id) {
+		// TODO Auto-generated method stub
+		return logbookRepository.getLogById(id);
+	}
 	
 
 }
