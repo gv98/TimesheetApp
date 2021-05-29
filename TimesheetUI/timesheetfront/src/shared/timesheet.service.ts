@@ -89,4 +89,10 @@ export class TimesheetService {
     sessionStorage.setItem("empid",user);
   }
 
+  approveSheet(id:number,dat:string)
+  {
+    const Url=`${baseUrl}/admin/approvetime?empid=${id}&dat=${dat}`;
+    return this._http.get(Url);
+  }
+
 }

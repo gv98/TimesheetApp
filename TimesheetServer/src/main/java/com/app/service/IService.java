@@ -21,4 +21,5 @@ public interface IService {
 	public List<TimeReport> getCustomDatesReport(String str);
 	public List<Leaves> viewLeaveTypes();
 	public void deleteLeavetype(String stri);
+	public void approveTime(int id,String str);
 }

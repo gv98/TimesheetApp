@@ -28,6 +28,8 @@
               <th>Empid</th>
               <th>Date</th>
               <th>Hours worked</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +39,8 @@
               <td> {{ a.empid }}</td>
               <td> {{ a.dat }}</td>
               <td>{{a.attendance}}</td>
+              <td>{{a.status}}</td>
+              <td><button *ngIf="a.status!='approved'" class="btn btn-primary" (click)="Approve(a.empid,a.dat)">Approve</button></td>
               </tr>
               </tbody>
               </table>

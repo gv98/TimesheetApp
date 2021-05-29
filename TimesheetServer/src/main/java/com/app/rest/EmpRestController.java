@@ -160,5 +160,23 @@ public class EmpRestController {
 		System.out.println(t);
 		return t;
 	}
+	
+	@GetMapping("/admin/approvetime")
+	public List<TimeReport> approveTime(@RequestParam int empid,@RequestParam String dat)
+	{
+		List<TimeReport> t=serviceImpl.getCustomDatesReport(dat);
+		try
+		{
+			serviceImpl.approveTime(empid, dat);
+		}catch(Exception e)
+		{
+			return t;
+		}
+		
+		return t;
+	}
+	
+//	@PostMapping("/employee/addtimesheet")
+//	public 
 
 }

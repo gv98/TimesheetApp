@@ -26,9 +26,12 @@ public interface TimeRepository extends JpaRepository<TimeReport, Integer> {
 //	public List<TimeReport> getCustomDatesReport(@Param("stri") String str);
 	
 	@Query
-	(value=" select empid,name,dat,attendance from logbook l join "
-			+ "employee e on e.empid=l.empidl and l.dat= :stri order by empid",nativeQuery=true)
+	(value=" select empid,name,dat,attendance,status from logbook l join "
+			+ "employee e on e.empid=l.empidl and l.dat= :stri and l.status!='saved' order by empid",nativeQuery=true)
 	public List<TimeReport> getCustomDatesReport(@Param("stri") String str);
+	@Query
+	(value=" update logbook set status='approved' where empidl= :empid and dat= :dat",nativeQuery=true)
+	public void approveTime(@Param("empid") int empid,@Param("dat") String dat);
 	
 
 }

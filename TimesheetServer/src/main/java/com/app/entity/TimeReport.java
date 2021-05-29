@@ -20,15 +20,18 @@ public class TimeReport {
 	private String dat;
 	@Column(name="attendance",table="logbook")
 	private String attendance;
+	@Column(name="status",table="logbook")
+	private String status;
 	public TimeReport() {
 		super();
 	}
-	public TimeReport(int empid, String name, String dat, String attendance) {
+	public TimeReport(int empid, String name, String dat, String attendance,String status) {
 		super();
 		this.empid = empid;
 		this.name = name;
 		this.dat = dat;
 		this.attendance = attendance;
+		this.status=status;
 	}
 	public int getEmpid() {
 		return empid;
@@ -54,5 +57,12 @@ public class TimeReport {
 	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	
 }

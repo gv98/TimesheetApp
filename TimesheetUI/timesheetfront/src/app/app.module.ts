@@ -20,6 +20,7 @@ import { EmploginComponent } from './emplogin/emplogin.component';
 import { EmpdashComponent } from './empdash/empdash.component';
 import { EmpupdateComponent } from './empupdate/empupdate.component';
 import { ChangepassComponent } from './changepass/changepass.component';
+import { AddtimesheetComponent } from './addtimesheet/addtimesheet.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ChangepassComponent } from './changepass/changepass.component';
     EmpdashComponent,
     EmpupdateComponent,
     ChangepassComponent,
+    AddtimesheetComponent,
   ],
   imports: [
     BrowserModule,

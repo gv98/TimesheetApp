@@ -173,6 +173,14 @@ public class ServiceImpl implements IService {
 		leaveRepository.deleteLeave(stri);
 		
 	}
+
+
+	@Override
+	public void approveTime(int id, String str) {
+		// TODO Auto-generated method stub
+		timeRepository.approveTime(id, str);
+		
+	}
 	
 
 }

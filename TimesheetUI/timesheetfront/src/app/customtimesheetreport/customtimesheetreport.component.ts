@@ -19,4 +19,11 @@ export class CustomtimesheetreportComponent implements OnInit {
     this._timesheetSer.customDateReport(val.idate).subscribe((res)=>{this.empArray=res});
   }
 
+  Approve(id:any,dat:any)
+  {
+    this._timesheetSer.approveSheet(id,dat).subscribe();
+    const val:any={idate:dat};
+    this.showAll(val);
+  }
+
 }
