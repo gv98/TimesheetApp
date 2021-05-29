@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddtimesheetComponent } from './addtimesheet/addtimesheet.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ChangepassComponent } from './changepass/changepass.component';
@@ -11,6 +12,7 @@ import { EmpdashComponent } from './empdash/empdash.component';
 import { EmploginComponent } from './emplogin/emplogin.component';
 import { EmpupdateComponent } from './empupdate/empupdate.component';
 import { HomeComponent } from './home/home.component';
+import { TimesheetdashComponent } from './timesheetdash/timesheetdash.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path:"emplogin",component:EmploginComponent},
   {path:"empdash",component:EmpdashComponent},
   {path:"empupdate",component:EmpupdateComponent},
-  {path:"changepass",component:ChangepassComponent}
+  {path:"changepass",component:ChangepassComponent},
+  {path:"timesheetdash",component:TimesheetdashComponent},
+  {path:"addtimesheet",component:AddtimesheetComponent}
 ];
 
 @NgModule({

@@ -10,8 +10,10 @@ import com.app.dao.AdminRepository;
 import com.app.dao.EmpCredRepository;
 import com.app.dao.EmployeeRepository;
 import com.app.dao.LeaveRepository;
+import com.app.dao.LogbookRepository;
 import com.app.dao.TimeRepository;
 import com.app.entity.Admin;
+import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
 import com.app.entity.Employee;
 import com.app.entity.Leaves;
@@ -25,16 +27,19 @@ public class ServiceImpl implements IService {
 	private LeaveRepository leaveRepository;
 	private TimeRepository timeRepository;
 	private EmpCredRepository empCredRepository;
+	private LogbookRepository logbookRepository;
 	
 	@Autowired
 	public ServiceImpl(EmployeeRepository employeeRepository,AdminRepository adminRepository,
-			LeaveRepository leaveRepository,TimeRepository timeRepository,EmpCredRepository empCredRepository) {
+			LeaveRepository leaveRepository,TimeRepository timeRepository,EmpCredRepository empCredRepository,
+			LogbookRepository logbookRepository) {
 		super();
 		this.employeeRepository = employeeRepository;
 		this.adminRepository=adminRepository;
 		this.leaveRepository=leaveRepository;
 		this.timeRepository=timeRepository;
 		this.empCredRepository=empCredRepository;
+		this.logbookRepository=logbookRepository;
 	}
 
 
@@ -180,6 +185,36 @@ public class ServiceImpl implements IService {
 		// TODO Auto-generated method stub
 		timeRepository.approveTime(id, str);
 		
+	}
+
+
+	@Override
+	public void addtosheet(ELogbook e) {
+		// TODO Auto-generated method stub
+		logbookRepository.save(e);
+	}
+
+
+	@Override
+	public List<ELogbook> getCustomTimeReport(int id) {
+		// TODO Auto-generated method stub
+		List<ELogbook> t=null;
+		try
+		{
+			t=logbookRepository.timeSheetDash(id);
+		}
+		catch(Exception e)
+		{
+			return t;
+		}
+		return t;
+	}
+
+
+	@Override
+	public void submitTime(int id, String str) {
+		// TODO Auto-generated method stub
+		timeRepository.submitTime(id, str);
 	}
 	
 

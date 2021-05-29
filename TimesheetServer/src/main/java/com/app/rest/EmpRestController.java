@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.entity.Admin;
+import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
 import com.app.entity.Employee;
 import com.app.entity.Leaves;
@@ -176,7 +177,34 @@ public class EmpRestController {
 		return t;
 	}
 	
-//	@PostMapping("/employee/addtimesheet")
-//	public 
+	@PostMapping("/employee/addtimesheet")
+	public ELogbook addToSheet(@RequestBody ELogbook e)
+	{
+		serviceImpl.addtosheet(e);
+		return e;
+	}
+	
+	@GetMapping("/admin/getcustomtimereport")
+	public List<ELogbook> getCustomTimeReport(@RequestParam int empid)
+	{
+		List<ELogbook> t=serviceImpl.getCustomTimeReport(empid);
+		System.out.println(t);
+		return t;
+	}
+	
+	@GetMapping("/admin/submittime")
+	public List<TimeReport> submitTime(@RequestParam int empid,@RequestParam String dat)
+	{
+		List<TimeReport> t=serviceImpl.getCustomDatesReport(dat);
+		try
+		{
+			serviceImpl.submitTime(empid, dat);
+		}catch(Exception e)
+		{
+			return t;
+		}
+		
+		return t;
+	}
 
 }

@@ -95,4 +95,22 @@ export class TimesheetService {
     return this._http.get(Url);
   }
 
+  addtimesheet(val:any)
+  {
+    const Url=`${baseUrl}/employee/addtimesheet`;
+    return this._http.post(Url,val);
+  }
+
+  customTimeReport(val:number)
+  {
+    const Url=`${baseUrl}/admin/getcustomtimereport?empid=${val}`;
+    return this._http.get(Url);
+  }
+
+  submitTime(empid:number,dat:string)
+  {
+    const Url=`${baseUrl}/admin/submittime?empid=${empid}&dat=${dat}`;
+    return this._http.get(Url);
+  }
+
 }

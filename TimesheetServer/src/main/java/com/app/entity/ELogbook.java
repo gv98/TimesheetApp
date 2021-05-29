@@ -10,20 +10,25 @@ import javax.persistence.Table;
 public class ELogbook {
 
 	@Id
+	@Column(name="pid")
+	private int pid;
 	@Column(name="empidl")
 	private int empidl;
 	@Column(name="dat")
 	private String dat;
 	@Column(name="attendance")
 	private String attendance;
+	@Column(name="status")
+	private String status;
 	public ELogbook() {
 		super();
 	}
-	public ELogbook(int empidl, String dat, String attendance) {
+	public ELogbook(int empidl, String dat, String attendance,String status) {
 		super();
 		this.empidl = empidl;
 		this.dat = dat;
 		this.attendance = attendance;
+		this.status=status;
 	}
 	public int getEmpidl() {
 		return empidl;
@@ -43,5 +48,18 @@ public class ELogbook {
 	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	
 	
 }
