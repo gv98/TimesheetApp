@@ -35,4 +35,5 @@ public interface IService {
 	public List<LeaveApplication> getByLid(int lid);
 	public void approveLeave( int empid,String dat);
 	public List<TimeReport> getMonthwiseReport(String str1);
+	public List<TimeReport> getYearwiseReport(String str1);
 }

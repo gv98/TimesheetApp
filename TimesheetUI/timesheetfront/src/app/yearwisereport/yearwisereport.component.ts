@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TimesheetService } from 'src/shared/timesheet.service';
 
 @Component({
-  selector: 'app-monthwisereport',
-  templateUrl: './monthwisereport.component.html',
-  styleUrls: ['./monthwisereport.component.css']
+  selector: 'app-yearwisereport',
+  templateUrl: './yearwisereport.component.html',
+  styleUrls: ['./yearwisereport.component.css']
 })
-export class MonthwisereportComponent implements OnInit {
+export class YearwisereportComponent implements OnInit {
 
   empArray:any=[];
   constructor(private _timesheetSer:TimesheetService) { }
@@ -16,7 +16,7 @@ export class MonthwisereportComponent implements OnInit {
 
   showAll(val:any)
   {
-    this._timesheetSer.customMonthReport(val.idate).subscribe((res)=>{this.empArray=res});
+    this._timesheetSer.customYearReport(val.idate).subscribe((res)=>{this.empArray=res});
   }
 
   Approve(id:any,dat:any)

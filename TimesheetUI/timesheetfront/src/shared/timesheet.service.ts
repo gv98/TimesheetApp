@@ -148,4 +148,16 @@ export class TimesheetService {
     const Url=`${baseUrl}/admin/approveleave?empid=${empid}&dat=${dat}`;
     return this._http.get(Url);
   }
+
+  customMonthReport(val:string)
+  {
+    const Url=`${baseUrl}/admin/getmonthwisereport?month=${val}`;
+    return this._http.get(Url);
+  }
+
+  customYearReport(val:string)
+  {
+    const Url=`${baseUrl}/admin/getyearwisereport?month=${val}`;
+    return this._http.get(Url);
+  }
 }

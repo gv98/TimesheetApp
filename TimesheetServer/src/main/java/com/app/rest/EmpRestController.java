@@ -265,5 +265,14 @@ public class EmpRestController {
 		System.out.println(t);
 		return t;
 	}
+	
+	@GetMapping("/admin/getyearwisereport")
+	public List<TimeReport> getYearwiseReport(@RequestParam String month)
+	{
+		List<TimeReport> t=serviceImpl.getYearwiseReport(month);
+		System.out.println(t);
+		return t;
+	}
+
 
 }

@@ -275,6 +275,22 @@ public class ServiceImpl implements IService {
 		}
 		return t;
 	}
+
+
+	@Override
+	public List<TimeReport> getYearwiseReport(String str1) {
+		// TODO Auto-generated method stub
+		List<TimeReport> t=null;
+		try
+		{
+			t=timeRepository.getYearwiseReport(str1);
+		}
+		catch(Exception e)
+		{
+			return t;
+		}
+		return t;
+	}
 	
 
 }

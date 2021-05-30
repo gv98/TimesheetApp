@@ -7,34 +7,37 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admindash">Dashboard</a>
+          <a class="nav-link" routerLink="/admindash" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/addemployee" >Add Employee</a>
+          <a class="nav-link" routerLink="/addemployee" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Add Employee</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/customtimesheetreport" >Custom Report</a>
+          <a class="nav-link" routerLink="/customtimesheetreport" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Custom Report</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/monthlyreport" >Monthly Report</a>
+          <a class="nav-link" routerLink="/monthwisereport" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Monthly Report</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/createleave" >Create Leave</a>
+          <a class="nav-link" routerLink="/yearwisereport" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Yearly Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/createleave" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Create Leave</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/applyleave" >Apply Leave</a>
+          <a class="nav-link" routerLink="/applyleave" *ngIf="_router.url!='/adminlogin'  && _router.url!='/home' && _router.url!='/admindash' && _router.url!='/addemployee' && _router.url!='/editemp' && _router.url!='/customtimesheetreport' && _router.url!='/createleave' && _router.url!='/emplogin' && _router.url!='/monthwisereport' && _router.url!='/yearwisereport' ">Apply Leave</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/leavereport" >Leave Report</a>
+          <a class="nav-link" routerLink="/leavereport" *ngIf="_router.url!='/adminlogin' && _router.url!='/emplogin' && _router.url!='/empdash' && _router.url!='/empupdate' && _router.url!='/changepass' && _router.url!='/timesheetdash' && _router.url!='/addtimesheet' && _router.url!='/updatesheet' && _router.url!='/applyleave' && _router.url!='/home' ">Leave Report</a>
         </li>
 
 
         
         
         <li class="nav-item">
-          <a class="nav-link" (click)="signout()">Logout</a>
+          <a class="nav-link" (click)="signout()" *ngIf="_router.url!='/home'">Logout</a>
         </li>
       </ul>
     </div>

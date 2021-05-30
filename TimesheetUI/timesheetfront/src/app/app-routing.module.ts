@@ -14,8 +14,10 @@ import { EmpupdateComponent } from './empupdate/empupdate.component';
 import { HomeComponent } from './home/home.component';
 import { LeaveapplicationComponent } from './leaveapplication/leaveapplication.component';
 import { LeavereportComponent } from './leavereport/leavereport.component';
+import { MonthwisereportComponent } from './monthwisereport/monthwisereport.component';
 import { TimesheetdashComponent } from './timesheetdash/timesheetdash.component';
 import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.component';
+import { YearwisereportComponent } from './yearwisereport/yearwisereport.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -34,7 +36,9 @@ const routes: Routes = [
   {path:"addtimesheet",component:AddtimesheetComponent},
   {path:"updatesheet",component:UpdatetimesheetComponent},
   {path:"applyleave",component:LeaveapplicationComponent},
-  {path:"leavereport",component:LeavereportComponent}
+  {path:"leavereport",component:LeavereportComponent},
+  {path:"monthwisereport",component:MonthwisereportComponent},
+  {path:"yearwisereport",component:YearwisereportComponent}
 ];
 
 @NgModule({

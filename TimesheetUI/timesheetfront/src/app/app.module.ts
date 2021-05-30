@@ -26,6 +26,7 @@ import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.comp
 import { LeaveapplicationComponent } from './leaveapplication/leaveapplication.component';
 import { LeavereportComponent } from './leavereport/leavereport.component';
 import { MonthwisereportComponent } from './monthwisereport/monthwisereport.component';
+import { YearwisereportComponent } from './yearwisereport/yearwisereport.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MonthwisereportComponent } from './monthwisereport/monthwisereport.comp
     LeaveapplicationComponent,
     LeavereportComponent,
     MonthwisereportComponent,
+    YearwisereportComponent,
   ],
   imports: [
     BrowserModule,

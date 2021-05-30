@@ -9,8 +9,8 @@
         <form #frmval="ngForm" name="myform" (ngSubmit)="showAll(frmval.value)">
                     
             <div class="form-group">
-                <label>Enter a Month:</label>
-                <input type="text" name="idate" #fdate="ngModel" class="form-control" pattern="^(0[1-9]|1[0-2])" ngModel required>
+                <label>Enter a Year:</label>
+                <input type="text" name="idate" #fdate="ngModel" class="form-control" pattern="^([0-9]{4,12})$" ngModel required>
                 <div *ngIf="fdate.touched && fdate.invalid">
                     <div class="alert alert-danger" *ngIf="fdate.hasError('required')">This field is required</div>
                     <div class="alert alert-danger" *ngIf="fdate.hasError('pattern')">Enter a valid month(MM/DD/YYYY)
