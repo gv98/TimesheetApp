@@ -37,7 +37,7 @@
         
         
         <li class="nav-item">
-          <a class="nav-link" (click)="signout()" *ngIf="_router.url!='/home'">Logout</a>
+          <a class="nav-link" (click)="signout()" *ngIf="_router.url!='/home' && _router.url!='/adminlogin' && _router.url!='/emplogin'">Logout</a>
         </li>
       </ul>
     </div>
