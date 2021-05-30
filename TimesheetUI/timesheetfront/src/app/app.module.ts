@@ -23,6 +23,9 @@ import { ChangepassComponent } from './changepass/changepass.component';
 import { AddtimesheetComponent } from './addtimesheet/addtimesheet.component';
 import { TimesheetdashComponent } from './timesheetdash/timesheetdash.component';
 import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.component';
+import { LeaveapplicationComponent } from './leaveapplication/leaveapplication.component';
+import { LeavereportComponent } from './leavereport/leavereport.component';
+import { MonthwisereportComponent } from './monthwisereport/monthwisereport.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.comp
     AddtimesheetComponent,
     TimesheetdashComponent,
     UpdatetimesheetComponent,
+    LeaveapplicationComponent,
+    LeavereportComponent,
+    MonthwisereportComponent,
   ],
   imports: [
     BrowserModule,

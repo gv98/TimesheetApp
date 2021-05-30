@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.app.dao.AdminRepository;
 import com.app.dao.EmpCredRepository;
 import com.app.dao.EmployeeRepository;
+import com.app.dao.LeaveApplicationRepo;
 import com.app.dao.LeaveRepository;
 import com.app.dao.LogbookRepository;
 import com.app.dao.TimeRepository;
@@ -16,6 +17,7 @@ import com.app.entity.Admin;
 import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
 import com.app.entity.Employee;
+import com.app.entity.LeaveApplication;
 import com.app.entity.Leaves;
 import com.app.entity.TimeReport;
 
@@ -28,11 +30,12 @@ public class ServiceImpl implements IService {
 	private TimeRepository timeRepository;
 	private EmpCredRepository empCredRepository;
 	private LogbookRepository logbookRepository;
+	private LeaveApplicationRepo leaveApplicationRepo;
 	
 	@Autowired
 	public ServiceImpl(EmployeeRepository employeeRepository,AdminRepository adminRepository,
 			LeaveRepository leaveRepository,TimeRepository timeRepository,EmpCredRepository empCredRepository,
-			LogbookRepository logbookRepository) {
+			LogbookRepository logbookRepository,LeaveApplicationRepo leaveApplicationRepo) {
 		super();
 		this.employeeRepository = employeeRepository;
 		this.adminRepository=adminRepository;
@@ -40,6 +43,7 @@ public class ServiceImpl implements IService {
 		this.timeRepository=timeRepository;
 		this.empCredRepository=empCredRepository;
 		this.logbookRepository=logbookRepository;
+		this.leaveApplicationRepo=leaveApplicationRepo;
 	}
 
 
@@ -222,6 +226,54 @@ public class ServiceImpl implements IService {
 	public ELogbook getLogById(int id) {
 		// TODO Auto-generated method stub
 		return logbookRepository.getLogById(id);
+	}
+
+
+	@Override
+	public LeaveApplication applyLeave(LeaveApplication l) {
+		// TODO Auto-generated method stub
+		leaveApplicationRepo.save(l);
+		return l;
+	}
+
+
+	@Override
+	public List<LeaveApplication> viewLeaveapps() {
+		// TODO Auto-generated method stub
+		List<LeaveApplication> l=leaveApplicationRepo.findAll();
+		return l;
+	}
+
+
+	@Override
+	public List<LeaveApplication> getByLid(int lid) {
+		// TODO Auto-generated method stub
+		List<LeaveApplication> l=leaveApplicationRepo.getByLid(lid);
+		return l;
+	}
+
+
+	@Override
+	public void approveLeave(int empid, String dat) {
+		// TODO Auto-generated method stub
+		leaveApplicationRepo.approveLeave(empid, dat);
+	}
+
+
+	@Override
+	public List<TimeReport> getMonthwiseReport(String str1) {
+		// TODO Auto-generated method stub
+		
+		List<TimeReport> t=null;
+		try
+		{
+			t=timeRepository.getMonthwiseReport(str1);
+		}
+		catch(Exception e)
+		{
+			return t;
+		}
+		return t;
 	}
 	
 

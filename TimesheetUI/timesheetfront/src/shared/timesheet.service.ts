@@ -125,4 +125,27 @@ export class TimesheetService {
     return this._http.get(Url);
   }
 
+  applyLeave(val:any)
+  {
+    const Url=`${baseUrl}/employee/addleave`;
+    return this._http.post(Url,val);
+  }
+
+  getLeaveReportById(val:any)
+  {
+    const Url=`${baseUrl}/employees/viewleavereport?empid=${val}`;
+    return this._http.get(Url);  
+  }
+
+  getLeaveApps()
+  {
+    const Url=`${baseUrl}/admin/viewleaveapps`;
+    return this._http.get(Url);  
+  }
+
+  approveLeave(empid:number,dat:string)
+  {
+    const Url=`${baseUrl}/admin/approveleave?empid=${empid}&dat=${dat}`;
+    return this._http.get(Url);
+  }
 }

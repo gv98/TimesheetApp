@@ -18,6 +18,7 @@ import com.app.entity.Admin;
 import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
 import com.app.entity.Employee;
+import com.app.entity.LeaveApplication;
 import com.app.entity.Leaves;
 import com.app.entity.TimeReport;
 import com.app.service.ServiceImpl;
@@ -219,6 +220,49 @@ public class EmpRestController {
 			return t;
 		}
 		
+		return t;
+	}
+	
+	@PostMapping("/employee/addleave")
+	public LeaveApplication addLeave(@RequestBody LeaveApplication l)
+	{
+		LeaveApplication leave=serviceImpl.applyLeave(l);
+		return leave;
+	}
+	
+	@GetMapping("/admin/viewleaveapps")
+	public List<LeaveApplication> viewLeaveApps()
+	{
+		List<LeaveApplication> l=serviceImpl.viewLeaveapps();
+		return l;
+	}
+	
+	@GetMapping("/employees/viewleavereport")
+	public List<LeaveApplication> getByLid(@RequestParam int empid)
+	{
+		List<LeaveApplication> l=serviceImpl.getByLid(empid);
+		return l;
+	}
+	
+	@GetMapping("/admin/approveleave")
+	public boolean approveLeave(int empid,String dat)
+	{
+		try
+		{
+			serviceImpl.approveLeave(empid, dat);
+			return true;
+		}catch(Exception e)
+		{
+			return true;
+		}
+		
+	}
+	
+	@GetMapping("/admin/getmonthwisereport")
+	public List<TimeReport> getMonthwiseReport(@RequestParam String month)
+	{
+		List<TimeReport> t=serviceImpl.getMonthwiseReport(month);
+		System.out.println(t);
 		return t;
 	}
 

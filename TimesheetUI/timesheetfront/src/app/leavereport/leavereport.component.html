@@ -1,0 +1,61 @@
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh);">
+    <div class="row">
+       <div class="col-sm-10"></div>
+        <div class="col-sm-10">
+            
+        </div>
+    </div>
+    <div class="container" style="margin-top: 70px;">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              
+              <th>Empid</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Leave Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of leaveArray" >
+            <td> {{ a.empid }}</td>
+              <td>{{ a.empname }}</td>
+              <td> {{ a.dat }}</td>
+              <td>{{a.ltype}}</td>
+              <td>{{a.status}}</td>
+              <td><button *ngIf="a.status!='approved'" class="btn btn-primary" (click)="Approve(a.empid,a.dat)">Approve</button></td>
+              </tr>
+              </tbody>
+              </table>
+              
+              <!-- <td>
+                <button class="btn btn-primary" (click)="openModal(template)">View</button>&nbsp;
+                <button type="button" class="btn btn-warning" (click)="editEmp(a.empid)">Edit</button>&nbsp;
+                <button type="button" class="btn btn-secondary btn active">Leave Report</button>&nbsp;
+                <button type="button" class="btn btn-outline-danger" (click)="deleteEmp(a.empid)">Delete</button>
+            </td> -->
+              <!-- <ng-template #template>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Account Details</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table>
+                    <tr><td><b>Empid:&nbsp;</b>{{a.empid}}</td></tr>
+                    <tr><td><b>Name:&nbsp;</b>{{a.name}}</td></tr>
+                    <tr><td><b>Designation:&nbsp;</b>{{a.designation}}</td></tr>
+                    <tr><td><b>Email:&nbsp;</b>{{a.email}}</td></tr>
+                    <tr><td><b>Contact Number:&nbsp;</b>{{a.mobile}}</td></tr>
+                    <tr><td><b>Address:</b><br>{{a.address}}</td></tr>
+                    <tr><td><b>Date Of Birth:&nbsp;</b>{{a.dob}}</td></tr>
+                    <tr><td><b>Salary:&nbsp;</b>{{a.salary}}</td></tr>
+                </table>
+                </div>
+              </ng-template> -->
+              
+      </div>
+</div>

@@ -1,10 +1,14 @@
 package com.app.service;
 
 import java.util.List;
+
+
+
 import com.app.entity.Admin;
 import com.app.entity.ELogbook;
 import com.app.entity.EmpCred;
 import com.app.entity.Employee;
+import com.app.entity.LeaveApplication;
 import com.app.entity.Leaves;
 import com.app.entity.TimeReport;
 
@@ -26,4 +30,9 @@ public interface IService {
 	public void submitTime(int id,String str);
 	public void addtosheet(ELogbook e);
 	public ELogbook getLogById(int id);
+	public LeaveApplication applyLeave(LeaveApplication l);
+	public List<LeaveApplication> viewLeaveapps();
+	public List<LeaveApplication> getByLid(int lid);
+	public void approveLeave( int empid,String dat);
+	public List<TimeReport> getMonthwiseReport(String str1);
 }

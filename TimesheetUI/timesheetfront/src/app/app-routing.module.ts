@@ -12,6 +12,8 @@ import { EmpdashComponent } from './empdash/empdash.component';
 import { EmploginComponent } from './emplogin/emplogin.component';
 import { EmpupdateComponent } from './empupdate/empupdate.component';
 import { HomeComponent } from './home/home.component';
+import { LeaveapplicationComponent } from './leaveapplication/leaveapplication.component';
+import { LeavereportComponent } from './leavereport/leavereport.component';
 import { TimesheetdashComponent } from './timesheetdash/timesheetdash.component';
 import { UpdatetimesheetComponent } from './updatetimesheet/updatetimesheet.component';
 
@@ -30,7 +32,9 @@ const routes: Routes = [
   {path:"changepass",component:ChangepassComponent},
   {path:"timesheetdash",component:TimesheetdashComponent},
   {path:"addtimesheet",component:AddtimesheetComponent},
-  {path:"updatesheet",component:UpdatetimesheetComponent}
+  {path:"updatesheet",component:UpdatetimesheetComponent},
+  {path:"applyleave",component:LeaveapplicationComponent},
+  {path:"leavereport",component:LeavereportComponent}
 ];
 
 @NgModule({
